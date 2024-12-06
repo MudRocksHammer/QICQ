@@ -1,0 +1,245 @@
+*{
+    font-family: SimHei;
+}
+
+#widget{
+    background-color: rgba(40, 40, 40, 220);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    border: none;
+}
+
+#widget_2{
+    background-color: rgb(32, 32, 32);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+}
+
+#widget_3{
+    background-color: rgb(0, 200, 20);
+}
+
+#widget_4{
+    background-color: rgb(255, 153, 0);
+}
+
+QPushButton{
+    border-radius: 5px;
+}
+
+/*-------------------------------------------------------top-----------------------------------------*/
+#mini_btn{
+    background-image:url(:/resource/common/ic_min_white.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 40px;
+    height: 20px;
+}
+
+#mini_btn:pressed{
+    background-image:url(:/resource/common/ic_min.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 40px;
+    height: 20px;
+}
+
+#max_btn{
+    background-image:url(:/resource/common/full_screen.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 40px;
+    height: 20px;
+}
+
+#max_btn:pressed{
+    background-image:url(:/resource/common/full_screen_press.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 40px;
+    height: 20px;
+}
+
+#hide_btn{
+    background-image:url(:/resource/common/side_bar.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 40px;
+    height: 20px;
+}
+
+#hide_btn:pressed{
+    background-image:url(:/resource/common/side_bar_press.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 40px;
+    height: 20px;
+}
+
+#close_btn{
+    background-image:url(:/resource/common/ic_close_white.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 40px;
+    height: 20px;
+}
+
+#close_btn:pressed{
+    background-image:url(:/resource/common/ic_close.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 40px;
+    height: 20px;
+}
+
+/*--------------------------------------------left----------------------------------------*/
+#head_btn{
+    background-image: url(:/resource/head/head-48.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 48px;
+    height: 48px;
+}
+
+#conv_btn{
+    background-image: url(:/resource/common/conv.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#conv_btn:checked{
+    background-image: url(:/resource/common/conv_sel.png);
+    background-color: rgb(64, 64, 64);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 30px;
+    height: 30px;
+    
+}
+
+#contact_btn{
+    background-image: url(:/resource/common/contact.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#contact_btn:checked{
+    background-image: url(:/resource/common/contact_sel.png);
+    background-color: rgb(64, 64, 64);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#util_btn{
+    background-image: url(:/resource/common/more.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#util_btn:hover{
+    background-color: rgb(64, 64, 64);
+}
+
+#file_btn{
+    background-image: url(:/resource/common/file.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#file_btn:hover{
+    background-image: url(:/resource/common/file_hover.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#mail_btn{
+    background-image: url(:/resource/common/mail.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#mail_btn:hover{
+    background-image: url(:/resource/common/mail_hover.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#setting_btn{
+    background-image: url(:/resource/common/setting.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#setting_btn:hover{
+    background-image: url(:/resource/common/setting_hover.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#conv_btn:hover, #contact_btn:hover{
+    background-color: rgb(64, 64, 64);
+}
+
+/*----------------------------------------------------------widget_2--------------------------------------*/
+#search_edit{
+    background-color: rgb(64, 64, 64);
+    border-radius: 5px;
+    color: white;
+}
+
+#add_btn:hover{
+    background-color: rgb(64, 64, 64);
+}
+
+#add_btn{
+    background-color: rgb(40, 40, 40);
+    background-image: url(:/resource/common/plus.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
+    border: none;
+    width: 30px;
+    height: 30px;
+}

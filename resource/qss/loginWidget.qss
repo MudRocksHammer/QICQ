@@ -1,0 +1,147 @@
+*{
+    font-family: SimHei;
+}
+
+#term_radio{
+    color: gray;
+    font-size: 14px;
+}
+
+#autoLog_check, #remPass_check{
+    color:gray;
+    font-size:14px;
+}
+
+#minimum_btn{
+    background-image:url(:/resource/common/ic_min_white.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 40px;
+    height: 20px;
+}
+
+#minimum_btn:pressed{
+    background-image:url(:/resource/common/ic_min.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 40px;
+    height: 20px;
+}
+
+#setting_btn{
+    background-image:url(:/resource/common/ic_login_cfg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 40px;
+    height: 20px;
+}
+
+#setting_btn:pressed{
+    background-image:url(:/resource/common/ic_login_cfg_m.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 40px;
+    height: 20px;
+}
+
+#close_btn{
+    background-image:url(:/resource/common/ic_close_white.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 40px;
+    height: 20px;
+}
+
+#close_btn:pressed{
+    background-image:url(:/resource/common/ic_close.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 40px;
+    height: 20px;
+}
+
+#login_btn{
+    background-color: rgb(52, 152, 219);
+    color: white;
+    border-radius: 4px;
+}
+
+#login_btn:pressed{
+    background-color: rgb(52, 152, 219);
+    color: gray;
+    border-radius: 4px;
+}
+
+#register_btn, #more_btn{
+    border:none;
+    color: rgb(52, 152, 219);
+    max-width: 80px;
+    min-height: 20px;
+}
+
+#register_btn:pressed, #more_btn:pressed{
+    border:none;
+    color: gray;
+}
+
+#switch_btn{
+    background-image: url(:/resource/images/applay.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    background-color: transparent;
+    max-width: 40;
+    max-height: 40;
+}
+
+#switch_btn:checked{
+    background-image: url(:/resource/images/applay_hover.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+QLineEdit{
+    border: none;
+    background-color: rgb(131, 145, 146);
+    min-height: 20px;
+    border-radius:4px;
+}
+
+#confirm_btn, #cancel_btn{
+    background-color: rgb(52, 152, 219);
+    border-radius: 4px;
+    color: white;
+    min-width: 100px;
+    min-height: 30px;
+}
+
+#confirm_btn:pressed, #cancel_btn:pressed{
+    background-color: rgb(52, 152, 219);
+    border-radius: 4px;
+    color: gray;
+}
+
+#groupBox{
+    font-family: SimHei;
+    font-size: 18px;
+    color: gray;
+}
+
+QLabel{
+    color: gray;
+}
+
+#filePort_edit, #msgPort_edit, #serverIP_edit, #streamPort_edit{
+    max-width: 150px;
+    min-height: 20px;
+}
+
+#head_label{
+    border-radius: 4px;
+}

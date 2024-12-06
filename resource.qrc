@@ -1,0 +1,87 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resource/sound/message.wav</file>
+        <file>resource/sound/msg.wav</file>
+        <file>resource/sound/ringin.wav</file>
+        <file>resource/sound/system.wav</file>
+        <file>resource/sound/userlogon.wav</file>
+
+        <file>resource/common/ic_close.png</file>
+        <file>resource/common/ic_close_white.png</file>
+        <file>resource/common/ic_min.png</file>
+        <file>resource/common/ic_min_white.png</file>
+        <file>resource/common/ic_login_cfg.png</file>
+        <file>resource/common/ic_login_cfg_m.png</file>
+        <file>resource/common/full_screen.png</file>
+        <file>resource/common/full_screen_press.png</file>
+        <file>resource/common/side_bar.png</file>
+        <file>resource/common/side_bar_press.png</file>
+        <file>resource/common/conv.png</file>
+        <file>resource/common/conv_sel.png</file>
+        <file>resource/common/contact.png</file>
+        <file>resource/common/contact_sel.png</file>
+        <file>resource/common/more.png</file>
+        <file>resource/common/file.png</file>
+        <file>resource/common/mail.png</file>
+        <file>resource/common/setting.png</file>
+        <file>resource/common/file_hover.png</file>
+        <file>resource/common/mail_hover.png</file>
+        <file>resource/common/setting_hover.png</file>
+        <file>resource/common/plus.png</file>
+        <file>resource/common/search.png</file>
+        <file>resource/common/clear.png</file>
+
+
+        <file>resource/qss/default.css</file>
+        <file>resource/qss/loginWidget.qss</file>
+        <file>resource/qss/mainwindow.qss</file>
+
+        <file>resource/background/app.png</file>
+        <file>resource/background/back.jpg</file>
+        <file>resource/background/cityback.jpg</file>
+        <file>resource/background/ic_picture.png</file>
+        <file>resource/background/moutain.jpg</file>
+        <file>resource/background/hello.png</file>
+        <file>resource/background/daylight.jpg</file>
+
+        <file>resource/head/0.bmp</file>
+        <file>resource/head/1.bmp</file>
+        <file>resource/head/2.bmp</file>
+        <file>resource/head/3.bmp</file>
+        <file>resource/head/4.bmp</file>
+        <file>resource/head/5.bmp</file>
+        <file>resource/head/6.bmp</file>
+        <file>resource/head/7.bmp</file>
+        <file>resource/head/8.bmp</file>
+        <file>resource/head/9.bmp</file>
+        <file>resource/head/head-48.png</file>
+        <file>resource/head/head-64.png</file>
+
+        <file>resource/images/applay.png</file>
+        <file>resource/images/applay_hover.png</file>
+        <file>resource/images/contacts.png</file>
+        <file>resource/images/contacts_hover.png</file>
+        <file>resource/images/conversation_hover.png</file>
+        <file>resource/images/conversation_normal.png</file>
+        <file>resource/images/group_hover.png</file>
+        <file>resource/images/group_normal.png</file>
+        <file>resource/images/ic_app.png</file>
+        <file>resource/images/ic_chat.png</file>
+        <file>resource/images/ic_check_hover.png</file>
+        <file>resource/images/ic_check_normal.png</file>
+        <file>resource/images/ic_file.png</file>
+        <file>resource/images/ic_friend.png</file>
+        <file>resource/images/ic_group.png</file>
+        <file>resource/images/ic_info.png</file>
+        <file>resource/images/ic_mainsetting.png</file>
+        <file>resource/images/ic_question.png</file>
+        <file>resource/images/ic_set_hover.png</file>
+        <file>resource/images/ic_uncheck.png</file>
+        <file>resource/images/ic_user.png</file>
+        <file>resource/images/ic_warning.png</file>
+        <file>resource/images/ic_zip.png</file>
+        <file>resource/images/robot.png</file>
+        <file>resource/images/X.png</file>
+        <file>resource/images/x_white.png</file>
+    </qresource>
+</RCC>
