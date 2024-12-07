@@ -243,3 +243,20 @@ QPushButton{
     width: 30px;
     height: 30px;
 }
+
+QMenu{
+    background-color: black;
+    border-radius: 15px;
+    color: gray;
+    font-family: SimHei;
+    font-size: 18px;
+}
+
+QMenu:hover{
+    border: 1px solid gray;
+    background-color: rgb(64, 64, 64);
+}
+
+#menu{
+    background-color: aqua;
+}

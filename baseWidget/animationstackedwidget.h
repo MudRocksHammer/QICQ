@@ -23,7 +23,7 @@ public:
     void setIndex(int previous, int current);
     void setLength(int length, AnimationType type);
     void setDuration(int duration);
-    int getDurarion() const;
+    int getDuration() const;
 
 protected:
     void paintEvent(QPaintEvent* e) override;

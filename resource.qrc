@@ -30,11 +30,17 @@
         <file>resource/common/plus.png</file>
         <file>resource/common/search.png</file>
         <file>resource/common/clear.png</file>
+        <file>resource/common/away.png</file>
+        <file>resource/common/busy.png</file>
+        <file>resource/common/hide.png</file>
+        <file>resource/common/online.png</file>
+        <file>resource/common/offline.png</file>
 
 
         <file>resource/qss/default.css</file>
         <file>resource/qss/loginWidget.qss</file>
         <file>resource/qss/mainwindow.qss</file>
+        <file>resource/qss/traymenu.qss</file>
 
         <file>resource/background/app.png</file>
         <file>resource/background/back.jpg</file>

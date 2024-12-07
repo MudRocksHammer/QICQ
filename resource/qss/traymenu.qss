@@ -1,0 +1,33 @@
+QMenu{
+    background-color: rgb(32, 32, 32);
+    color: rgb(191, 191, 191);
+    font-family: SimHei;
+    font-size: 14px;
+    margin: 2px;
+    padding: 5px;
+}
+
+QMenu::item{
+    background-color: transparent;
+    padding: 5px 10px;
+    margin: 2px 0;
+    color: rgb(191, 191, 191);
+}
+
+QMenu::item:selected{
+    background-color: rgb(64, 64, 64);
+    color: white;
+    border: 1px solid white; 
+}
+
+/* QMenu::item:disabled{
+    禁用控件样式
+} */
+
+QMenu::separator{
+    background-color: gray;
+    height: 1px;
+    margin: 4px 10px;
+    border: none;
+}
+

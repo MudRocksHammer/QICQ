@@ -31,9 +31,9 @@ void AnimationStackedWidget::start(int index)
     m_prevIndex = m_curIndex;
     m_curIndex = index;
 
-    int offsetx = frameRect().width();
-    int offsety = frameRect().height();
-    widget(m_curIndex)->setGeometry(0, 0, offsetx, offsety);
+    int offset_x = frameRect().width();
+    int offset_y = frameRect().height();
+    widget(m_curIndex)->setGeometry(0, 0, offset_x, offset_y);
 
     currentWidget()->hide();
     isAnimating = true;
@@ -68,7 +68,7 @@ void AnimationStackedWidget::setDuration(int duration)
     m_anime->setDuration(duration);
 }
 
-int AnimationStackedWidget::getDurarion() const
+int AnimationStackedWidget::getDuration() const
 {
     return m_anime->duration();
 }

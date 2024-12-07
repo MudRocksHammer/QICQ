@@ -1,6 +1,6 @@
 #include "customwidget.h"
 
-CustomMoveWidget::CustomMoveWidget(QWidget *parent)
+CustomMoveWidget::CustomMoveWidget(QWidget *parent) : m_mousePressed(false)
 {
 
 }
@@ -27,6 +27,7 @@ void CustomMoveWidget::mousePressEvent(QMouseEvent *e)
 void CustomMoveWidget::mouseReleaseEvent(QMouseEvent *e)
 {
     m_mousePressed = false;
+    
 }
 
 CustomWidget::CustomWidget(QWidget *parent)
