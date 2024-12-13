@@ -41,17 +41,33 @@ void MainWindow::initUI()
     //     ui->search_edit->enableClear(true);
     //     qDebug() << ui->search_edit->width();
     // });
+
+    // TODO: temporary list view display, handle later
+    QVector<Cell> myCells = {
+        {"Show case1", ":/resource/head/3.bmp", "I feel more powerful when I learn more", "", "", ""},
+        {"Show case2", ":/resource/head/4.bmp", "Time is all you got valuable, spend it wisely", "", "", ""},
+        {"Show case3", ":/resource/head/5.bmp", "Im the storm that is approaching", "", "", ""}};
+
+    QQCell *cell = new QQCell(this);
+    cell->setData(myCells);
+
+    ui->stackedWidget->addWidget(new QWidget(this));
+    ui->stackedWidget->widget(2)->setLayout(new QVBoxLayout(this));
+    ui->stackedWidget->widget(2)->layout()->setMargin(0);
+    ui->stackedWidget->widget(2)->layout()->addWidget(cell);
 }
 
 void MainWindow::initConnect()
 {
     connect(ui->close_btn, &QPushButton::clicked, [this]
             { this->close(); });
-    
 
     connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::pushBtn_clicked);
     connect(ui->pushButton_3, &QPushButton::clicked, this, &MainWindow::pushBtn3_clicked);
     connect(ui->pushButton_2, &QPushButton::clicked, this, &MainWindow::pushBtn2_clicked);
+
+    connect(ui->conv_btn, &QPushButton::clicked, this, &MainWindow::conv_btn_clicked);
+    connect(ui->contact_btn, &QPushButton::clicked, this, &MainWindow::contact_btn_clicked);
 }
 
 void MainWindow::enterEvent(QEvent *e)
@@ -87,14 +103,16 @@ void MainWindow::mousePressEvent(QMouseEvent *e)
 
 void MainWindow::mouseMoveEvent(QMouseEvent *e)
 {
-    //widget resize or move
-    //TODO: 缩放到一定大小chatwidget显示或消失
-    if(m_mousePressed){
+    // widget resize or move
+    // TODO: 缩放到一定大小chatwidget显示或消失
+    if (m_mousePressed)
+    {
         QPoint delta = e->pos() - mousePoint;
         switch (m_direction)
         {
         case ResizeDirection::Left:
-            if(width() == minimumWidth() && delta.x() > 0) break;
+            if (width() == minimumWidth() && delta.x() > 0)
+                break;
             setGeometry(x() + delta.x(), y(), width() - delta.x(), height());
             setCursor(Qt::SizeHorCursor);
             break;
@@ -104,7 +122,8 @@ void MainWindow::mouseMoveEvent(QMouseEvent *e)
             setCursor(Qt::SizeHorCursor);
             break;
         case ResizeDirection::Top:
-            if(height() == minimumHeight() && delta.y() > 0) break;
+            if (height() == minimumHeight() && delta.y() > 0)
+                break;
             setGeometry(x(), y() + delta.y(), width(), height() - delta.y());
             setCursor(Qt::SizeVerCursor);
             break;
@@ -118,7 +137,9 @@ void MainWindow::mouseMoveEvent(QMouseEvent *e)
             unsetCursor();
             break;
         }
-    }else{
+    }
+    else
+    {
         if (onHorizontalEdge(e->pos()))
             setCursor(Qt::SizeHorCursor);
         else if (onVerticalEdge(e->pos()))
@@ -142,6 +163,16 @@ void MainWindow::pushBtn_clicked()
 void MainWindow::pushBtn3_clicked()
 {
     stackedWidgetChanged(0);
+}
+
+void MainWindow::conv_btn_clicked(bool check)
+{
+    stackedWidgetChanged(0);
+}
+
+void MainWindow::contact_btn_clicked(bool check)
+{
+    stackedWidgetChanged(2);
 }
 
 void MainWindow::pushBtn2_clicked()

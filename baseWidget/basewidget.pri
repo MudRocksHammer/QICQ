@@ -4,6 +4,7 @@ DEPENDPATH  +=  $$PWD
 INCLUDEPATH  +=  $$PWD/qqlist
 INCLUDEPATH  +=  $$PWD/qqlist  $$PWD/picture
 
+include($$PWD/QQCell/QQCell.pri)
 
 HEADERS += \
     $$PWD/animationstackedwidget.h \
@@ -12,10 +13,6 @@ HEADERS += \
     $$PWD/pictureedit/cutdialog.h \
     $$PWD/pictureedit/photoshotdialog.h \
     $$PWD/pictureedit/pictureeditwidget.h \
-    $$PWD/qqlist/qqlistwidget.h \
-    $$PWD/qqlist/qqlistviewgroup.h \
-    $$PWD/qqlist/qqlistviewchild.h \
-    $$PWD/qqlist/qqpopmenuwidget.h \
     $$PWD/rotatestackedwidget.h \
     $$PWD/customedit.h
 
@@ -26,14 +23,9 @@ SOURCES += \
     $$PWD/pictureedit/cutdialog.cpp \
     $$PWD/pictureedit/photoshotdialog.cpp \
     $$PWD/pictureedit/pictureeditwidget.cpp \
-    $$PWD/qqlist/qqlistwidget.cpp \
-    $$PWD/qqlist/qqlistviewgroup.cpp \
-    $$PWD/qqlist/qqlistviewchild.cpp \
-    $$PWD/qqlist/qqpopmenuwidget.cpp \
     $$PWD/rotatestackedwidget.cpp \
     $$PWD/customedit.cpp
 
 
 FORMS += \
-    $$PWD/pictureedit/pictureeditwidget.ui \
-    $$PWD/qqlist/qqlistviewgroup.ui \
+    $$PWD/pictureedit/pictureeditwidget.ui 

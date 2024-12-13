@@ -13,6 +13,7 @@
 #include <QIcon>
 
 #include "baseWidget/customwidget.h"
+#include "baseWidget/QQCell/QQCell.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -24,13 +25,15 @@ QT_END_NAMESPACE
 class MainWindow : public CustomMoveWidget
 {
     Q_OBJECT
-    enum class ResizeDirection{
+    enum class ResizeDirection
+    {
         Left,
         Right,
         Top,
         Bottom,
         None
     };
+
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -39,16 +42,20 @@ public:
     void initConnect();
 
 protected:
-    void enterEvent(QEvent* e) override;
-    void leaveEvent(QEvent* e) override;
-    void mousePressEvent(QMouseEvent* e) override;
-    void mouseMoveEvent(QMouseEvent* e) override;
-    void mouseReleaseEvent(QMouseEvent* e) override;
+    void enterEvent(QEvent *e) override;
+    void leaveEvent(QEvent *e) override;
+    void mousePressEvent(QMouseEvent *e) override;
+    void mouseMoveEvent(QMouseEvent *e) override;
+    void mouseReleaseEvent(QMouseEvent *e) override;
 
 private slots:
     void pushBtn_clicked();
     void pushBtn2_clicked();
     void pushBtn3_clicked();
+
+    void conv_btn_clicked(bool);
+    void contact_btn_clicked(bool);
+
     void stackedWidgetChanged(int);
 
     void trayIcon_clicked_slot(QSystemTrayIcon::ActivationReason);
@@ -58,11 +65,11 @@ private slots:
 
     /// @brief check if mouse current position on the edge of widget
     /// @param  mouse position
-    /// @return 
+    /// @return
     bool onHorizontalEdge(QPoint);
     /// @brief vertical edge
     /// @param  mouse position
-    /// @return 
+    /// @return
     bool onVerticalEdge(QPoint);
 
 private:
@@ -72,12 +79,15 @@ private:
     bool m_bQuit;
     /// @brief mouse event is pressed
     bool isPressing;
-    QWidget* m_chatWidget;
+    QWidget *m_chatWidget;
 
     /// @brief moving properties member
     ResizeDirection m_direction;
 
     QSystemTrayIcon *m_trayIcon;
+
+    QVector<QQCell *> m_contact_cell;
+    QVector<QQCell *> m_conversation_cell;
 };
 
 #endif // MAINWINDOW_H

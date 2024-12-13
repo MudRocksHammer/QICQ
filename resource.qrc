@@ -35,12 +35,15 @@
         <file>resource/common/hide.png</file>
         <file>resource/common/online.png</file>
         <file>resource/common/offline.png</file>
+         <file>resource/common/arrow_right.png</file>
+        <file>resource/common/arrow_down.png</file>
 
 
         <file>resource/qss/default.css</file>
         <file>resource/qss/loginWidget.qss</file>
         <file>resource/qss/mainwindow.qss</file>
         <file>resource/qss/traymenu.qss</file>
+        <file>resource/qss/cellList.qss</file>
 
         <file>resource/background/app.png</file>
         <file>resource/background/back.jpg</file>

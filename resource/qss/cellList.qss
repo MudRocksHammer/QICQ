@@ -1,0 +1,13 @@
+QListView{
+    font-family: SimHei;
+    font-size: 18px;
+    border: none;
+    color: white;
+    background-color: rgb(32, 32, 32);
+}
+
+QLabel{
+    font-family: SimHei;
+    font-size: 18px;
+    color: white;
+}
