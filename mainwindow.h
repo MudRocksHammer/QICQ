@@ -11,9 +11,11 @@
 #include <QWidget>
 #include <QAction>
 #include <QIcon>
+#include <QDateTime>
 
 #include "baseWidget/customwidget.h"
 #include "baseWidget/QQCell/QQCell.h"
+#include "baseWidget/ChatWidget/ChatWidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui

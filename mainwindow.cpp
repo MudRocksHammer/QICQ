@@ -9,6 +9,11 @@ MainWindow::MainWindow(QWidget *parent)
     initSysTrayIcon();
     initUI();
     initConnect();
+
+    QFile file(":/resource/qss/mainwindow.qss");
+    file.open(QFile::ReadOnly);
+    setStyleSheet(file.readAll());
+    file.close();
 }
 
 MainWindow::~MainWindow()
@@ -25,22 +30,20 @@ void MainWindow::initUI()
     setWindowIcon(QIcon(":/resource/images/x_white.png"));
     setWindowTitle("QICQ");
 
-    QFile file(":/resource/qss/mainwindow.qss");
-    file.open(QFile::ReadOnly);
-    setStyleSheet(file.readAll());
-    file.close();
-
     ui->search_edit->setIcon(":/resource/common/search.png");
 
     m_chatWidget = new QWidget(this);
-    m_chatWidget->setStyleSheet("background-color : yellow");
-    ui->horizontalLayout_3->addWidget(m_chatWidget);
+    // m_chatWidget->setStyleSheet("background-color : rgb(24,24,24)");
+    ui->verticalLayout_3->addWidget(m_chatWidget);
     m_chatWidget->show();
     m_chatWidget->setMouseTracking(true);
-    // QTimer::singleShot(0, this, [&](){
-    //     ui->search_edit->enableClear(true);
-    //     qDebug() << ui->search_edit->width();
-    // });
+    m_chatWidget->setLayout(new QVBoxLayout(m_chatWidget));
+    m_chatWidget->setMinimumWidth(250);
+    m_chatWidget->setObjectName("chatWidget");
+    //  QTimer::singleShot(0, this, [&](){
+    //      ui->search_edit->enableClear(true);
+    //      qDebug() << ui->search_edit->width();
+    //  });
 
     // TODO: temporary list view display, handle later
     QVector<Cell> myCells = {
@@ -55,6 +58,26 @@ void MainWindow::initUI()
     ui->stackedWidget->widget(2)->setLayout(new QVBoxLayout(this));
     ui->stackedWidget->widget(2)->layout()->setMargin(0);
     ui->stackedWidget->widget(2)->layout()->addWidget(cell);
+
+    // TODO: temporary chat widget display
+    QVector<ItemInfo> myInfos = {
+        {"Show case1", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"), ":/resource/head/3.bmp", "lets go and play basket ball", Unit::Right, Unit::Text},
+        {"Show case1", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"), ":/resource/head/3.bmp", "lets go and play basket ball", Unit::Right, Unit::Text},
+        {"Show case1", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"), ":/resource/head/3.bmp", "lets go and play basket ball", Unit::Right, Unit::Text},
+        {"Show case1", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"), ":/resource/head/3.bmp", "lets go and play basket ball", Unit::Right, Unit::Text},
+        {"Show case1", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"), ":/resource/head/6.bmp", "why not, playint basket ball is gonna be marvelous, lets go", Unit::Left, Unit::Text},
+        {"Show case1", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"), ":/resource/head/6.bmp", "why not, playint basket ball is gonna be marvelous, lets go", Unit::Left, Unit::Text},
+        {"Show case1", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"), ":/resource/head/6.bmp", "why not, playint basket ball is gonna be marvelous, lets go", Unit::Left, Unit::Text},
+        {"Show case1", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"), ":/resource/head/6.bmp", "why not, playint basket ball is gonna be marvelous, lets go", Unit::Left, Unit::Text},
+        {"Show case1", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"), ":/resource/head/6.bmp", "why not, playint basket ball is gonna be marvelous, lets go", Unit::Left, Unit::Text}};
+
+    ChatWidget *chat = new ChatWidget(m_chatWidget);
+    chat->setData(myInfos);
+    m_chatWidget->layout()->addWidget(chat);
+    qDebug() << (m_chatWidget->layout()->isEmpty() ? 0 : 1);
+    // ui->verticalLayout_3->removeWidget(ui->verticalLayout_3->widget());
+    // ui->verticalLayout_3->addWidget(chat);
+    chat->scrollToBottom();
 }
 
 void MainWindow::initConnect()

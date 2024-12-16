@@ -35,15 +35,37 @@
         <file>resource/common/hide.png</file>
         <file>resource/common/online.png</file>
         <file>resource/common/offline.png</file>
-         <file>resource/common/arrow_right.png</file>
+        <file>resource/common/arrow_right.png</file>
         <file>resource/common/arrow_down.png</file>
-
+        <file>resource/common/dialAudio.png</file>
+        <file>resource/common/dialAudio_hover.png</file>
+        <file>resource/common/dialVideo.png</file>
+        <file>resource/common/dialVideo_hover.png</file>
+        <file>resource/common/share_screen.png</file>
+        <file>resource/common/share_screen_hover.png</file>
+        <file>resource/common/more_chat.png</file>
+        <file>resource/common/more_chat_hover.png</file>
+        <file>resource/common/emoji.png</file>
+        <file>resource/common/emoji_hover.png</file>
+        <file>resource/common/scissor.png</file>
+        <file>resource/common/scissor_hover.png</file>
+        <file>resource/common/picture.png</file>
+        <file>resource/common/picture_hover.png</file>
+        <file>resource/common/mic.png</file>
+        <file>resource/common/mic_hover.png</file>
+        <file>resource/common/clock.png</file>
+        <file>resource/common/clock_hover.png</file>
 
         <file>resource/qss/default.css</file>
         <file>resource/qss/loginWidget.qss</file>
         <file>resource/qss/mainwindow.qss</file>
         <file>resource/qss/traymenu.qss</file>
-        <file>resource/qss/cellList.qss</file>
+        <file>resource/qss/ContactWindow/cellList.qss</file>
+        <file>resource/qss/ChatWindow/chatList.qss</file>
+        <file>resource/qss/ChatWindow/chatTitle.qss</file>
+        <file>resource/qss/ChatWindow/chatInput.qss</file>
+        <file>resource/qss/ChatWindow/chatWindow.qss</file>
+        <file>resource/qss/ChatWindow/conv_list.qss</file>
 
         <file>resource/background/app.png</file>
         <file>resource/background/back.jpg</file>

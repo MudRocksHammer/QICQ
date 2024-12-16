@@ -1,0 +1,45 @@
+*{
+    font-family: SimHei;
+    font-size: 18px;
+}
+
+#listView{
+    background-color: rgb(22,22,22);
+    color: white;
+    border: none;
+}
+
+QScrollBar:vertical{
+    background-color: rgb(24, 24, 24);
+    width:10px;
+    margin: 0px 0px 0px 0px;
+    border: none;
+}
+
+QScrollBar::handle:vertical{
+    background-color: rgb(64,64,64);
+    border-radius: 5px;
+    border: none;
+    min-height: 20px;
+}
+
+QScrollBar::add-line:vertical {
+    border: 0px solid grey;
+    background: #32CC99;
+    height: 0px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical { 
+    border: 0px solid grey;
+    background: #32CC99;
+    height: 0px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+    width: 0px;
+    height: 0px;
+}

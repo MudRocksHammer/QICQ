@@ -12,9 +12,13 @@
 
 #widget_2{
     background-color: rgb(32, 32, 32);
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    /* border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; */
     border: none;
+}
+
+#chatWidget{
+    background-color: rgb(24,24,24);
 }
 
 #widget_3{

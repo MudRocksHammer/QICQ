@@ -1,0 +1,81 @@
+*{
+    font-family: SimHei;
+}
+
+#userName_btn{
+    font-size: 26;
+    color: white;
+}
+#userName_btn:hover{
+    font-size: 26;
+    color: white;
+    background-color: rgb(64, 64, 64);
+}
+
+#dialAudio_btn{
+    background-image: url(:/resource/common/dialAudio.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+#dialAudio_btn:hover{
+    background-image: url(:/resource/common/dialAudio_hover.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#dialVideo_btn{
+    background-image: url(:/resource/common/dialVideo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+#dialVideo_btn:hover{
+    background-image: url(:/resource/common/dialVideo_hover.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#shareScreen_btn{
+    background-image: url(:/resource/common/share_screen.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+#shareScreen_btn:hover{
+    background-image: url(:/resource/common/share_screen_hover.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#moreChat_btn{
+    background-image: url(:/resource/common/more_chat.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+#moreChat_btn:hover{
+    background-image: url(:/resource/common/more_chat_hover.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}

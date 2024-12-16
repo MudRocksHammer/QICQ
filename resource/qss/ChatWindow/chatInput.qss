@@ -1,0 +1,120 @@
+*{font-family: SimHei;}
+
+#emoji_btn{
+    background-image: url(:/resource/common/emoji.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#emoji_btn:hover{
+    background-image: url(:/resource/common/emoji_hover.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#cutScreen_btn{
+    background-image: url(:/resource/common/scissor.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#cutScreen_btn:hover{
+    background-image: url(:/resource/common/scissor_hover.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#picture_btn{
+    background-image: url(:/resource/common/picture.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#picture_btn:hover{
+    background-image: url(:/resource/common/picture_hover.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#audioMsg_btn{
+    background-image: url(:/resource/common/mic.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#audioMsg_btn:hover{
+    background-image: url(:/resource/common/mic_hover.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#history_btn{
+    background-image: url(:/resource/common/clock.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#history_btn:hover{
+    background-image: url(:/resource/common/clock_hover.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+#send_btn{
+    background-color: rgb(25, 91, 189);
+    border: none;
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+    color: white;
+}
+
+#send_btn:hover{
+    background-color: rgb(43, 117, 228);
+    border: none;
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+    color: white;
+}
+
+#textEdit{
+    border: none;
+    color: white;
+    background-color: rgb(24,24,24);
+}
+
+#ChatInput{
+    border-top:1px solid white;
+    background-color: aqua;
+}

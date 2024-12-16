@@ -17,9 +17,10 @@ void QQCell::addData(const Cell &cell)
 
 void QQCell::initUI()
 {
-    QFile file(":/resource/qss/cellList.qss");
+    QFile file(":/resource/qss/ContactWindow/cellList.qss");
     file.open(QFile::ReadOnly);
     setStyleSheet(file.readAll());
+    file.close();
 
     QVBoxLayout *vlayout = new QVBoxLayout(this);
 

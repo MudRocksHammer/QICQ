@@ -40,6 +40,8 @@ void QQCellDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
     QRect stateRect(headRect.right() + padding, nameRect.bottom() + text_padding, metric.horizontalAdvance(state), metric.height());
     painter->drawText(stateRect, state);
 
+    // TODO: CtrlPic, statePic, lastTime display, text oversized display
+
     painter->restore();
 }
 

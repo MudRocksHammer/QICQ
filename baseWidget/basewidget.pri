@@ -5,6 +5,7 @@ INCLUDEPATH  +=  $$PWD/qqlist
 INCLUDEPATH  +=  $$PWD/qqlist  $$PWD/picture
 
 include($$PWD/QQCell/QQCell.pri)
+include($$PWD/ChatWidget/ChatWidget.pri)
 
 HEADERS += \
     $$PWD/animationstackedwidget.h \
