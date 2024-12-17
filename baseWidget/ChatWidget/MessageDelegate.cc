@@ -50,7 +50,7 @@ void MessageDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     else
     {
         headRect = QRect(msgRect.left() + padding, msgRect.top() + 2 * padding, ITEM_HEAD_SIZE, ITEM_HEAD_SIZE);
-        bubbleRect = QRect(headRect.right() + padding / 2, msgRect.top() + 3 * padding, textLen + padding, textHeight + padding);
+        bubbleRect = QRect(headRect.right() + padding, msgRect.top() + 3 * padding, textLen + padding, textHeight + padding);
         textRect = QRect(bubbleRect.left() + padding / 2, bubbleRect.top() + padding / 2, textLen, textHeight);
         timeRect = QRect(headRect.right() + padding / 2, msgRect.top() + padding, dateLen, dateHeight);
     }

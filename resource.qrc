@@ -61,6 +61,7 @@
         <file>resource/qss/mainwindow.qss</file>
         <file>resource/qss/traymenu.qss</file>
         <file>resource/qss/ContactWindow/cellList.qss</file>
+        <file>resource/qss/ContactWindow/conversationList.qss</file>
         <file>resource/qss/ChatWindow/chatList.qss</file>
         <file>resource/qss/ChatWindow/chatTitle.qss</file>
         <file>resource/qss/ChatWindow/chatInput.qss</file>

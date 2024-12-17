@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : CustomMoveWidget(parent), ui(new Ui::MainWindow), m_direction(ResizeDirection::None)
+    : CustomMoveWidget(parent), ui(new Ui::MainWindow), m_direction(Unit::ResizeDirection::None)
 {
     ui->setupUi(this);
 
@@ -44,8 +44,23 @@ void MainWindow::initUI()
     //      ui->search_edit->enableClear(true);
     //      qDebug() << ui->search_edit->width();
     //  });
+    temporaryTest();
+    QButtonGroup *grp = new QButtonGroup(this);
+    grp->addButton(ui->contact_btn);
+    grp->addButton(ui->conv_btn);
 
-    // TODO: temporary list view display, handle later
+    connect(grp, QOverload<QAbstractButton *, bool>::of(&QButtonGroup::buttonToggled), this, &MainWindow::btnGrp_toggled);
+}
+
+void MainWindow::initConnect()
+{
+    connect(ui->close_btn, &QPushButton::clicked, [this]
+            { this->close(); });
+}
+
+void MainWindow::temporaryTest()
+{
+    // contact
     QVector<Cell> myCells = {
         {"Show case1", ":/resource/head/3.bmp", "I feel more powerful when I learn more", "", "", ""},
         {"Show case2", ":/resource/head/4.bmp", "Time is all you got valuable, spend it wisely", "", "", ""},
@@ -54,12 +69,13 @@ void MainWindow::initUI()
     QQCell *cell = new QQCell(this);
     cell->setData(myCells);
 
-    ui->stackedWidget->addWidget(new QWidget(this));
-    ui->stackedWidget->widget(2)->setLayout(new QVBoxLayout(this));
-    ui->stackedWidget->widget(2)->layout()->setMargin(0);
-    ui->stackedWidget->widget(2)->layout()->addWidget(cell);
+    // ui->stackedWidget->addWidget(new QWidget(this));
+    // ui->stackedWidget->widget(0)->setLayout(new QVBoxLayout(this));
+    // ui->stackedWidget->widget(0)->layout()->setMargin(0);
+    // ui->stackedWidget->widget(0)->layout()->addWidget(cell);
+    ui->widget_3->layout()->addWidget(cell);
 
-    // TODO: temporary chat widget display
+    // chat widget
     QVector<ItemInfo> myInfos = {
         {"Show case1", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"), ":/resource/head/3.bmp", "lets go and play basket ball", Unit::Right, Unit::Text},
         {"Show case1", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"), ":/resource/head/3.bmp", "lets go and play basket ball", Unit::Right, Unit::Text},
@@ -78,19 +94,16 @@ void MainWindow::initUI()
     // ui->verticalLayout_3->removeWidget(ui->verticalLayout_3->widget());
     // ui->verticalLayout_3->addWidget(chat);
     chat->scrollToBottom();
-}
 
-void MainWindow::initConnect()
-{
-    connect(ui->close_btn, &QPushButton::clicked, [this]
-            { this->close(); });
+    // conversation
+    QVector<Cell> convCells = {
+        {"Show case1", ":/resource/head/3.bmp", "Do you remember where did I put my keys?", QTime::currentTime().toString("hh:mm:ss"), "", ""},
+        {"Show case2", ":/resource/head/4.bmp", "Time is all you got valuable, spend it wisely", QTime::currentTime().toString("hh:mm:ss"), "", ""},
+        {"Show case3", ":/resource/head/5.bmp", "Im the storm that is approaching", QTime::currentTime().toString("hh:mm:ss"), "", ""}};
 
-    connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::pushBtn_clicked);
-    connect(ui->pushButton_3, &QPushButton::clicked, this, &MainWindow::pushBtn3_clicked);
-    connect(ui->pushButton_2, &QPushButton::clicked, this, &MainWindow::pushBtn2_clicked);
-
-    connect(ui->conv_btn, &QPushButton::clicked, this, &MainWindow::conv_btn_clicked);
-    connect(ui->contact_btn, &QPushButton::clicked, this, &MainWindow::contact_btn_clicked);
+    ConversationCell *convCell = new ConversationCell(this);
+    convCell->setData(convCells);
+    ui->widget_4->layout()->addWidget(convCell);
 }
 
 void MainWindow::enterEvent(QEvent *e)
@@ -108,19 +121,19 @@ void MainWindow::mousePressEvent(QMouseEvent *e)
     if (onHorizontalEdge(e->pos()))
     {
         if (e->pos().x() - rect().left() < 15)
-            m_direction = ResizeDirection::Left;
+            m_direction = Unit::ResizeDirection::Left;
         else
-            m_direction = ResizeDirection::Right;
+            m_direction = Unit::ResizeDirection::Right;
     }
     else if (onVerticalEdge(e->pos()))
     {
         if (e->pos().y() - rect().top() < 15)
-            m_direction = ResizeDirection::Top;
+            m_direction = Unit::ResizeDirection::Top;
         else
-            m_direction = ResizeDirection::Bottom;
+            m_direction = Unit::ResizeDirection::Bottom;
     }
     else
-        m_direction = ResizeDirection::None;
+        m_direction = Unit::ResizeDirection::None;
     CustomMoveWidget::mousePressEvent(e);
 }
 
@@ -133,24 +146,24 @@ void MainWindow::mouseMoveEvent(QMouseEvent *e)
         QPoint delta = e->pos() - mousePoint;
         switch (m_direction)
         {
-        case ResizeDirection::Left:
+        case Unit::ResizeDirection::Left:
             if (width() == minimumWidth() && delta.x() > 0)
                 break;
             setGeometry(x() + delta.x(), y(), width() - delta.x(), height());
             setCursor(Qt::SizeHorCursor);
             break;
-        case ResizeDirection::Right:
+        case Unit::ResizeDirection::Right:
             setGeometry(x(), y(), width() + delta.x(), height());
             mousePoint = e->pos();
             setCursor(Qt::SizeHorCursor);
             break;
-        case ResizeDirection::Top:
+        case Unit::ResizeDirection::Top:
             if (height() == minimumHeight() && delta.y() > 0)
                 break;
             setGeometry(x(), y() + delta.y(), width(), height() - delta.y());
             setCursor(Qt::SizeVerCursor);
             break;
-        case ResizeDirection::Bottom:
+        case Unit::ResizeDirection::Bottom:
             setGeometry(x(), y(), width(), height() + delta.y());
             mousePoint = e->pos();
             setCursor(Qt::SizeVerCursor);
@@ -178,16 +191,6 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *e)
     CustomMoveWidget::mouseReleaseEvent(e);
 }
 
-void MainWindow::pushBtn_clicked()
-{
-    stackedWidgetChanged(1);
-}
-
-void MainWindow::pushBtn3_clicked()
-{
-    stackedWidgetChanged(0);
-}
-
 void MainWindow::conv_btn_clicked(bool check)
 {
     stackedWidgetChanged(0);
@@ -195,12 +198,23 @@ void MainWindow::conv_btn_clicked(bool check)
 
 void MainWindow::contact_btn_clicked(bool check)
 {
-    stackedWidgetChanged(2);
+    if (ui->contact_btn->isChecked())
+        return;
+    stackedWidgetChanged(1);
 }
 
-void MainWindow::pushBtn2_clicked()
+void MainWindow::btnGrp_toggled(QAbstractButton *btn, bool check)
 {
-    m_chatWidget->setVisible(!m_chatWidget->isVisible());
+    if (check)
+        return;
+    if (btn == ui->conv_btn)
+    {
+        stackedWidgetChanged(Unit::Conversation);
+    }
+    else if (btn == ui->contact_btn)
+    {
+        stackedWidgetChanged(Unit::Contact);
+    }
 }
 
 void MainWindow::stackedWidgetChanged(int index)

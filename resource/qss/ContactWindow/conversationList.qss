@@ -1,15 +1,12 @@
-QListView{
+*{
     font-family: SimHei;
     font-size: 18px;
+}
+
+QListView{
     border: none;
     color: white;
     background-color: rgb(32, 32, 32);
-}
-
-QLabel{
-    font-family: SimHei;
-    font-size: 18px;
-    color: white;
 }
 
 QScrollBar:vertical{

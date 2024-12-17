@@ -172,6 +172,22 @@ namespace Unit
         AddFriendOk,
         AddFriendFailed
     } E_STATUS;
+
+    enum class ResizeDirection
+    {
+        Left,
+        Right,
+        Top,
+        Bottom,
+        None
+    };
+
+    enum MiddleArea
+    {
+        Contact,
+        Conversation,
+        Group
+    };
 }
 
 #endif // UNIT_H

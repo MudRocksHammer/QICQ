@@ -12,10 +12,13 @@
 #include <QAction>
 #include <QIcon>
 #include <QDateTime>
+#include <QButtonGroup>
 
 #include "baseWidget/customwidget.h"
 #include "baseWidget/QQCell/QQCell.h"
 #include "baseWidget/ChatWidget/ChatWidget.h"
+#include "baseWidget/QQCell/ConversationCell.h"
+#include "comapi/unit.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -27,21 +30,10 @@ QT_END_NAMESPACE
 class MainWindow : public CustomMoveWidget
 {
     Q_OBJECT
-    enum class ResizeDirection
-    {
-        Left,
-        Right,
-        Top,
-        Bottom,
-        None
-    };
 
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
-    void initUI();
-    void initConnect();
 
 protected:
     void enterEvent(QEvent *e) override;
@@ -50,13 +42,15 @@ protected:
     void mouseMoveEvent(QMouseEvent *e) override;
     void mouseReleaseEvent(QMouseEvent *e) override;
 
-private slots:
-    void pushBtn_clicked();
-    void pushBtn2_clicked();
-    void pushBtn3_clicked();
+private:
+    void initUI();
+    void initConnect();
+    void temporaryTest();
 
+private slots:
     void conv_btn_clicked(bool);
     void contact_btn_clicked(bool);
+    void btnGrp_toggled(QAbstractButton *btn, bool check);
 
     void stackedWidgetChanged(int);
 
@@ -84,7 +78,7 @@ private:
     QWidget *m_chatWidget;
 
     /// @brief moving properties member
-    ResizeDirection m_direction;
+    Unit::ResizeDirection m_direction;
 
     QSystemTrayIcon *m_trayIcon;
 

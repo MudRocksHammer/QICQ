@@ -13,7 +13,9 @@ void QQCellModel::setData(QVector<Cell> &cells)
 
 void QQCellModel::addData(const Cell &cell)
 {
-    // beginInsertRows(QModelIndex())
+    beginInsertRows(QModelIndex(), m_cells.size(), m_cells.size());
+    m_cells.append(cell);
+    endInsertRows();
 }
 
 QVariant QQCellModel::data(const QModelIndex &index, int role) const
