@@ -45,7 +45,12 @@ protected:
 private:
     void initUI();
     void initConnect();
-    void temporaryTest();
+    /// @brief query database and create contact widget when login
+    void createContactArea(QString);
+    /// @brief same as contact widget
+    void createConversationArea(QString);
+    /// @brief when double clicked a person or group or clicked conversation cell,add a chat window
+    void createChatWidget(QString);
 
 private slots:
     void conv_btn_clicked(bool);
@@ -67,6 +72,8 @@ private slots:
     /// @param  mouse position
     /// @return
     bool onVerticalEdge(QPoint);
+
+    void cellDoubleClicked_slot(QString);
 
 private:
     Ui::MainWindow *ui;

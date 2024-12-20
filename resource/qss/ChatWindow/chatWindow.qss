@@ -2,3 +2,55 @@
     font-family: SimHei;
 }
 
+#ChatWidget{
+    background-color: rgb(22,22,22);
+}
+
+#return_btn{
+    background-image: url(:/resource/common/arrow_down.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(22,22,22);
+}
+
+#mini_btn{
+    background-color: rgb(22,22,22);
+    background-image: url(:/resource/common/ic_min_white.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#mini_btn:pressed{
+    background-color: rgb(22,22,22);
+    background-image: url(:/resource/common/ic_min.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#max_btn{
+    background-color: rgb(22,22,22);
+    background-image: url(:/resource/common/full_screen.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#max_btn:pressed{
+    background-color: rgb(22,22,22);
+    background-image: url(:/resource/common/full_screen_press.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#close_btn{
+    background-color: rgb(22,22,22);
+    background-image: url(:/resource/common/ic_close_white.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#close_btn:pressed{
+    background-color: rgb(22,22,22);
+    background-image: url(:/resource/common/ic_close.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}

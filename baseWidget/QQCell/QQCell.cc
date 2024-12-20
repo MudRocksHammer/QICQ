@@ -42,6 +42,7 @@ void QQCell::initUI()
     this->setLayout(vlayout);
 
     connect(m_title, &QQCellTitle::titleClicked_signal, this, &QQCell::titleClicked_slot);
+    connect(m_delegate, &QQCellDelegate::cellDoubleClicked_signal, this, &QQCell::cellDoubleClicked_signal);
 }
 
 void QQCell::titleClicked_slot(bool open)

@@ -34,4 +34,6 @@ void ConversationCell::initUI()
     vlayout->addWidget(m_listview);
 
     this->setLayout(vlayout);
+
+    connect(m_delegate, &QQCellDelegate::cellDoubleClicked_signal, this, &ConversationCell::cellDoubleClicked_signal);
 }

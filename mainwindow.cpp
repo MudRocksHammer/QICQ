@@ -33,23 +33,23 @@ void MainWindow::initUI()
     ui->search_edit->setIcon(":/resource/common/search.png");
 
     m_chatWidget = new QWidget(this);
-    // m_chatWidget->setStyleSheet("background-color : rgb(24,24,24)");
     ui->verticalLayout_3->addWidget(m_chatWidget);
     m_chatWidget->show();
     m_chatWidget->setMouseTracking(true);
     m_chatWidget->setLayout(new QVBoxLayout(m_chatWidget));
-    m_chatWidget->setMinimumWidth(250);
+    m_chatWidget->setMinimumWidth(300);
     m_chatWidget->setObjectName("chatWidget");
-    //  QTimer::singleShot(0, this, [&](){
-    //      ui->search_edit->enableClear(true);
-    //      qDebug() << ui->search_edit->width();
-    //  });
-    temporaryTest();
+    m_chatWidget->hide();
     QButtonGroup *grp = new QButtonGroup(this);
     grp->addButton(ui->contact_btn);
     grp->addButton(ui->conv_btn);
 
     connect(grp, QOverload<QAbstractButton *, bool>::of(&QButtonGroup::buttonToggled), this, &MainWindow::btnGrp_toggled);
+    ui->conv_btn->setChecked(true);
+
+    createContactArea("");
+    createConversationArea("");
+    // createChatWidget();
 }
 
 void MainWindow::initConnect()
@@ -58,7 +58,7 @@ void MainWindow::initConnect()
             { this->close(); });
 }
 
-void MainWindow::temporaryTest()
+void MainWindow::createContactArea(QString)
 {
     // contact
     QVector<Cell> myCells = {
@@ -74,8 +74,28 @@ void MainWindow::temporaryTest()
     // ui->stackedWidget->widget(0)->layout()->setMargin(0);
     // ui->stackedWidget->widget(0)->layout()->addWidget(cell);
     ui->widget_3->layout()->addWidget(cell);
+    connect(cell, &QQCell::cellDoubleClicked_signal, this, &MainWindow::cellDoubleClicked_slot);
+}
 
-    // chat widget
+void MainWindow::createConversationArea(QString)
+{
+    // conversation
+    QVector<Cell> convCells = {
+        {"Show case1", ":/resource/head/3.bmp", "Do you remember where did I put my keys?", QTime::currentTime().toString("hh:mm:ss"), "", ""},
+        {"Show case2", ":/resource/head/4.bmp", "Time is all you got valuable, spend it wisely", QTime::currentTime().toString("hh:mm:ss"), "", ""},
+        {"Show case3", ":/resource/head/5.bmp", "Im the storm that is approaching", QTime::currentTime().toString("hh:mm:ss"), "", ""}};
+
+    ConversationCell *convCell = new ConversationCell(this);
+    convCell->setData(convCells);
+    ui->widget_4->layout()->addWidget(convCell);
+
+    connect(convCell, &ConversationCell::cellDoubleClicked_signal, this, &MainWindow::cellDoubleClicked_slot);
+}
+
+void MainWindow::createChatWidget(QString name)
+{
+    // TODO: query database and transmit true data
+    //  chat widget
     QVector<ItemInfo> myInfos = {
         {"Show case1", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"), ":/resource/head/3.bmp", "lets go and play basket ball", Unit::Right, Unit::Text},
         {"Show case1", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"), ":/resource/head/3.bmp", "lets go and play basket ball", Unit::Right, Unit::Text},
@@ -87,23 +107,20 @@ void MainWindow::temporaryTest()
         {"Show case1", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"), ":/resource/head/6.bmp", "why not, playint basket ball is gonna be marvelous, lets go", Unit::Left, Unit::Text},
         {"Show case1", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"), ":/resource/head/6.bmp", "why not, playint basket ball is gonna be marvelous, lets go", Unit::Left, Unit::Text}};
 
-    ChatWidget *chat = new ChatWidget(m_chatWidget);
-    chat->setData(myInfos);
-    m_chatWidget->layout()->addWidget(chat);
-    qDebug() << (m_chatWidget->layout()->isEmpty() ? 0 : 1);
-    // ui->verticalLayout_3->removeWidget(ui->verticalLayout_3->widget());
-    // ui->verticalLayout_3->addWidget(chat);
-    chat->scrollToBottom();
-
-    // conversation
-    QVector<Cell> convCells = {
-        {"Show case1", ":/resource/head/3.bmp", "Do you remember where did I put my keys?", QTime::currentTime().toString("hh:mm:ss"), "", ""},
-        {"Show case2", ":/resource/head/4.bmp", "Time is all you got valuable, spend it wisely", QTime::currentTime().toString("hh:mm:ss"), "", ""},
-        {"Show case3", ":/resource/head/5.bmp", "Im the storm that is approaching", QTime::currentTime().toString("hh:mm:ss"), "", ""}};
-
-    ConversationCell *convCell = new ConversationCell(this);
-    convCell->setData(convCells);
-    ui->widget_4->layout()->addWidget(convCell);
+    if (m_chatWidget->isHidden())
+    {
+        ChatWidget *chat = new ChatWidget;
+        chat->setData(myInfos);
+        chat->scrollToBottom();
+        chat->show();
+    }
+    else
+    {
+        ChatWidget *chat = new ChatWidget(m_chatWidget);
+        chat->setData(myInfos);
+        m_chatWidget->layout()->addWidget(chat);
+        chat->scrollToBottom();
+    }
 }
 
 void MainWindow::enterEvent(QEvent *e)
@@ -140,7 +157,7 @@ void MainWindow::mousePressEvent(QMouseEvent *e)
 void MainWindow::mouseMoveEvent(QMouseEvent *e)
 {
     // widget resize or move
-    // TODO: 缩放到一定大小chatwidget显示或消失
+    // TODO: 缩放到一定大小chatWidget显示或消失
     if (m_mousePressed)
     {
         QPoint delta = e->pos() - mousePoint;
@@ -325,4 +342,10 @@ bool MainWindow::onVerticalEdge(QPoint pos)
     if (pos.y() - rect.top() < 15 || rect.bottom() - pos.y() < 15)
         return true;
     return false;
+}
+
+void MainWindow::cellDoubleClicked_slot(QString name)
+{
+    qDebug() << "received signal" << name;
+    createChatWidget(name);
 }

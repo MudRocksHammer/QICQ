@@ -1,6 +1,7 @@
 #include "QQCellDelegate.h"
 
 #include <QDebug>
+#include <QEvent>
 
 QQCellDelegate::QQCellDelegate(QObject *parent) : QStyledItemDelegate(parent)
 {
@@ -48,4 +49,13 @@ void QQCellDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
 QSize QQCellDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     return QSize(200, 60);
+}
+
+bool QQCellDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    if (event->type() == QEvent::MouseButtonDblClick)
+    {
+        emit cellDoubleClicked_signal(index.data(Cell::NameRole).toString());
+    }
+    return false;
 }

@@ -1,7 +1,7 @@
 #include "ChatWidget.h"
 #include "ui_chatwidget.h"
 
-ChatWidget::ChatWidget(QWidget *parent) : QWidget(parent), ui(new Ui::ChatWidget)
+ChatWidget::ChatWidget(QWidget *parent) : CustomMoveWidget(parent), ui(new Ui::ChatWidget)
 {
     ui->setupUi(this);
     initUI();
@@ -24,6 +24,8 @@ void ChatWidget::scrollToBottom()
 
 void ChatWidget::initUI()
 {
+    this->setWindowFlag(Qt::FramelessWindowHint);
+
     m_messageList = new MessageList(this);
     m_title = new ChatTitle(this);
     m_input = new ChatInput(this);
@@ -34,4 +36,11 @@ void ChatWidget::initUI()
     ui->verticalLayout->addWidget(m_title);
     ui->verticalLayout->addWidget(m_messageList);
     ui->verticalLayout->addWidget(m_input);
+
+    connect(ui->close_btn, &QPushButton::clicked, this, &ChatWidget::close_btn_clicked);
+}
+
+void ChatWidget::close_btn_clicked()
+{
+    this->close();
 }

@@ -38,7 +38,8 @@ QScrollBar::sub-line:vertical {
     subcontrol-origin: margin;
 }
 
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
     background: none;
     width: 0px;
     height: 0px;

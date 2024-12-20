@@ -21,6 +21,9 @@ public:
 private:
     void initUI();
 
+signals:
+    void cellDoubleClicked_signal(QString);
+
 private slots:
     void titleClicked_slot(bool);
 

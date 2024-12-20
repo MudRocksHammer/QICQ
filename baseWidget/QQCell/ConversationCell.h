@@ -22,6 +22,9 @@ protected:
 private:
     void initUI();
 
+signals:
+    void cellDoubleClicked_signal(QString);
+
 private:
     QQCellModel *m_model;
     QQCellDelegate *m_delegate;

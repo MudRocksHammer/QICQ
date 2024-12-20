@@ -7,6 +7,7 @@
 #include "MessageList.h"
 #include "ChatTitle.h"
 #include "ChatInput.h"
+#include "customwidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -15,7 +16,7 @@ namespace Ui
 }
 QT_END_NAMESPACE
 
-class ChatWidget : public QWidget
+class ChatWidget : public CustomMoveWidget
 {
     Q_OBJECT
 public:
@@ -26,6 +27,9 @@ public:
 
 private:
     void initUI();
+
+private:
+    void close_btn_clicked();
 
 private:
     MessageList *m_messageList;
