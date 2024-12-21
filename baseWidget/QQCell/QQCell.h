@@ -18,6 +18,7 @@ public:
     void setData(QVector<Cell> &cell);
     void addData(const Cell &cell);
 
+protected:
 private:
     void initUI();
 

@@ -22,6 +22,22 @@ void ChatWidget::scrollToBottom()
     m_messageList->scrollToBottom();
 }
 
+void ChatWidget::hideTitle()
+{
+    ui->widget->hide();
+}
+
+void ChatWidget::showTitle()
+{
+    ui->widget->show();
+}
+
+bool ChatWidget::eventFilter(QObject *obj, QEvent *e)
+{
+
+    return false;
+}
+
 void ChatWidget::initUI()
 {
     this->setWindowFlag(Qt::FramelessWindowHint);

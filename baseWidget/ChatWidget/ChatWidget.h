@@ -25,6 +25,12 @@ public:
     void setData(QVector<ItemInfo> &infos);
     void scrollToBottom();
 
+    void hideTitle();
+    void showTitle();
+
+protected:
+    bool eventFilter(QObject *obj, QEvent *e) override;
+
 private:
     void initUI();
 

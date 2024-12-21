@@ -2,6 +2,10 @@
     font-family: SimHei;
 }
 
+#MainWindow{
+    border: 1px solid gray;
+}
+
 #widget{
     background-color: rgba(40, 40, 40, 220);
     border-top-left-radius: 5px;

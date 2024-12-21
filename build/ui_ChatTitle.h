@@ -33,7 +33,7 @@ public:
     {
         if (ChatTitle->objectName().isEmpty())
             ChatTitle->setObjectName(QString::fromUtf8("ChatTitle"));
-        ChatTitle->resize(646, 300);
+        ChatTitle->resize(642, 291);
         horizontalLayout = new QHBoxLayout(ChatTitle);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         userName_btn = new QPushButton(ChatTitle);

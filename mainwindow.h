@@ -41,6 +41,8 @@ protected:
     void mousePressEvent(QMouseEvent *e) override;
     void mouseMoveEvent(QMouseEvent *e) override;
     void mouseReleaseEvent(QMouseEvent *e) override;
+    bool eventFilter(QObject *obj, QEvent *e) override;
+    void resizeEvent(QResizeEvent *e) override;
 
 private:
     void initUI();

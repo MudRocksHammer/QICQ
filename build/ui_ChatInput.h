@@ -45,6 +45,7 @@ public:
         ChatInput->setMaximumSize(QSize(16777215, 200));
         verticalLayout = new QVBoxLayout(ChatInput);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         emoji_btn = new QPushButton(ChatInput);

@@ -14,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
     file.open(QFile::ReadOnly);
     setStyleSheet(file.readAll());
     file.close();
+
+    ui->widget_2->installEventFilter(this);
 }
 
 MainWindow::~MainWindow()
@@ -34,7 +36,6 @@ void MainWindow::initUI()
 
     m_chatWidget = new QWidget(this);
     ui->verticalLayout_3->addWidget(m_chatWidget);
-    m_chatWidget->show();
     m_chatWidget->setMouseTracking(true);
     m_chatWidget->setLayout(new QVBoxLayout(m_chatWidget));
     m_chatWidget->setMinimumWidth(300);
@@ -113,6 +114,7 @@ void MainWindow::createChatWidget(QString name)
         chat->setData(myInfos);
         chat->scrollToBottom();
         chat->show();
+        chat->showTitle();
     }
     else
     {
@@ -120,6 +122,7 @@ void MainWindow::createChatWidget(QString name)
         chat->setData(myInfos);
         m_chatWidget->layout()->addWidget(chat);
         chat->scrollToBottom();
+        chat->hideTitle();
     }
 }
 
@@ -298,6 +301,29 @@ void MainWindow::trayMenu_clicked_slot(QAction *action)
     }
 }
 
+bool MainWindow::eventFilter(QObject *obj, QEvent *e)
+{
+    if (obj == ui->widget_2)
+    {
+        // qDebug() << e->type();
+        //  leaveEvent((QMouseEvent *)e);
+    }
+    return CustomMoveWidget::eventFilter(obj, e);
+}
+
+void MainWindow::resizeEvent(QResizeEvent *e)
+{
+    QSize newSize = e->size();
+    if (newSize.width() > 460)
+    {
+        m_chatWidget->show();
+    }
+    else
+    {
+        m_chatWidget->hide();
+    }
+}
+
 void MainWindow::initSysTrayIcon()
 {
     m_trayIcon = new QSystemTrayIcon(this);
@@ -331,7 +357,7 @@ void MainWindow::initSysTrayIcon()
 bool MainWindow::onHorizontalEdge(QPoint pos)
 {
     QRect rect = this->rect();
-    if ((pos.x() - rect.left() < 15) || (rect.right() - pos.x() < 15))
+    if ((pos.x() - rect.left() < 5) || (rect.right() - pos.x() < 5))
         return true;
     return false;
 }
@@ -339,7 +365,7 @@ bool MainWindow::onHorizontalEdge(QPoint pos)
 bool MainWindow::onVerticalEdge(QPoint pos)
 {
     QRect rect = this->rect();
-    if (pos.y() - rect.top() < 15 || rect.bottom() - pos.y() < 15)
+    if (pos.y() - rect.top() < 5 || rect.bottom() - pos.y() < 5)
         return true;
     return false;
 }

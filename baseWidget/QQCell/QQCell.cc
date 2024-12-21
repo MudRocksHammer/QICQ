@@ -1,8 +1,11 @@
 #include "QQCell.h"
 
+#include <QDebug>
+
 QQCell::QQCell(QWidget *parent)
 {
     initUI();
+    m_listView->installEventFilter(this);
 }
 
 void QQCell::setData(QVector<Cell> &cell)
